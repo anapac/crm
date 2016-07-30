@@ -1,0 +1,307 @@
+@media (max-width: 767) {
+    /* your custom css class on a parent will increase specificity */
+    /* so this rule will override Bootstrap's font size setting */
+    .autosized .label { font-size: 14px; }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .autosized .label { font-size: 16px; }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    .autosized .label { font-size: 18px; }
+}
+
+@media (min-width: 1200px) {
+    .autosized .label { font-size: 25px; }
+}
+
+html, body {
+    height: 100%;
+}
+
+#wrap {
+    min-height: 100%;
+}
+
+div#react {
+	background-image: url(/assets/images/background.jpg);
+    background-size: cover;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+}
+
+main {
+	height: 95%;
+}
+
+footer {
+	position: relative;
+	display: inline;
+	height: 40px;
+    margin-top: -40px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+    width: 100%;
+    clear: both;
+	text-align: right;
+	vertical-align: text-bottom;
+	color: black;
+	background-color: rgba(10, 100, 100, 0.5);
+}
+
+p.footer-text {
+	margin: 10px;
+	padding: 0;
+	vertical-align: text-bottom;
+}
+
+nav.navbar {
+	background-color: rgba(55, 120, 200, 0.4);
+}
+
+ul.nav li a {
+	border: 1px;
+	color: white;
+}
+
+.jumbotron {
+	background-color: transparent;
+	padding: 10px;
+	margin: 20px;
+	color: black;
+}
+
+h1.component-head {
+	margin-left: 10%;
+	border: 1px white;
+	border-radius: 10px 3px 10px 3px;
+	width: 50%;
+	color: white;
+	background: red; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(#005580, white); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#005580, white); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#005580, white); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(25deg, #005580, white); /* Standard syntax */
+	font-weight: bold;
+	padding: 2% 0% 2% 5%;
+}
+
+div#outer {
+	border-width: 0px;
+	margin: 40px;
+	color: #005580;
+}
+
+div#list {
+	margin: 10px 5% 10px 5%;
+	padding: 0 10 0 10;
+	border: 0px;
+	border-radius: 5px;
+	background-color: rgba(55, 120, 200, 0.5);
+}
+
+.list-container {
+	margin: 0 5% 0 5%;
+	background-color: rgba(0, 0, 0, 0.5);
+	padding: 10px;
+	border: 0px;
+}
+
+p.list-item-text {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	font-size: 1.2em;
+}
+
+button.list-item-btn {
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+div.list-row {
+	background-color: rgba(55, 120, 200, 0.4);
+	vertical-align: text-bottom;
+}
+
+a.list-group-item {
+	background-color: rgba(55, 120, 200, 0.4);
+	color: rgb(50, 0, 50);
+	font-size: 1.2em;
+	border: 0px;
+}
+
+a.list-group-item:hover {
+	background-color: rgba(55, 120, 200, 0.8);
+	color: rgb(200, 200, 250);
+	font-size: 1.2em;
+}
+
+span.ro-field {
+    padding: 10px 0 10px 10px;
+    font-size: 1.1em;
+    background-color: rbga(0, 0, 0, 0.5);
+}
+
+div.bordered {
+	border: 1px solid #5555aa;
+	border-radius: 5px;
+	background-color: rgba(55, 120, 200, 0.4);
+	margin: 10px 5% 10px 5%;
+}
+
+div.btn-row {
+    display: inline-block;
+	margin-top: 20px;
+    padding: 10px 5%;
+    text-align: right;
+    background-color: rgba(0, 75, 65, 0.7);
+    width: 90%;
+}
+
+button.btn {
+    margin: 0 5px;
+}
+
+.em12 {
+	font-size: 1.2em;
+}
+
+/* Transitions */
+
+.animation-enter {
+	opacity: 0.01;
+}
+
+.animation-enter.animation-enter-active {
+	opacity: 1;
+	transition: opacity 300ms ease-in;
+}
+
+.animation-leave {
+	opacity: 1;
+}
+
+.animation-leave.animation-leave-active {
+	opacity: 0.01;
+	transition: opacity 300ms ease-in;
+}
+
+/* Login form */
+div.login-container {
+	float: right;
+}
+
+.card-container.card {
+    max-width: 350px;
+    padding: 40px 40px;
+}
+
+.profile-name-card {
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    margin: 10px 0 0;
+    min-height: 1em;
+}
+
+.card {
+    background-color: rgba(55, 120, 200, 0.7);
+    /* just in case there no content*/
+    padding: 20px 25px 30px;
+    margin: 0 auto 25px;
+    margin-top: 0px;
+    /* shadows and rounded borders */
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+}
+
+.profile-img-card {
+    width: 96px;
+    height: 96px;
+    margin: 0 auto 10px;
+    display: block;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+}
+
+.reauth-email {
+    display: block;
+    color: #404040;
+    line-height: 2;
+    margin-bottom: 10px;
+    font-size: 14px;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.form-signin #inputEmail,
+.form-signin #inputPassword {
+    direction: ltr;
+    height: 44px;
+    font-size: 16px;
+}
+
+.form-signin input[type=email],
+.form-signin input[type=password],
+.form-signin input[type=text],
+.form-signin button {
+    width: 100%;
+    display: block;
+    margin-bottom: 10px;
+    z-index: 1;
+    position: relative;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.form-signin .form-control:focus {
+    border-color: rgb(104, 145, 162);
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgb(104, 145, 162);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgb(104, 145, 162);
+}
+
+.btn.btn-signin {
+    /* background-color: #4d90fe; */
+    /* background-color: rgb(104, 145, 162); */
+    background-color: linear-gradient(rgb(104, 145, 162), rgb(12, 97, 33));
+    padding: 0px;
+    font-weight: 700;
+    font-size: 14px;
+    height: 36px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    border: none;
+    -o-transition: all 0.218s;
+    -moz-transition: all 0.218s;
+    -webkit-transition: all 0.218s;
+    transition: all 0.218s;
+}
+
+.btn.btn-signin:hover,
+.btn.btn-signin:active,
+.btn.btn-signin:focus {
+    background-color: rgb(12, 97, 33);
+}
+
+.forgot-password {
+    color: rgb(104, 145, 162);
+}
+
