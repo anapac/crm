@@ -46,7 +46,7 @@ exports.searchContacts = (request, reply) => {
 		// console.log(`[ searchContacts ] contact_docs ==> ${contact_docs}`);
 		reply(contact_docs);
 	});
-};
+};	// searchContacts()
 
 exports.getContactInstance = (request, reply) => {
 	let cnt = request.params.contactId;

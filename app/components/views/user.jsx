@@ -14,8 +14,6 @@ export default class User extends React.Component {
 		this.canCreateContent = null;
 		this.isNewRecord = null;
 
-		// a var to keep the initial version of this.state.userRecord
-
 		// Init state --> equivalent to getInitialState() in React.createClass()
 		this.state = {
 			initialUserRecord: null,
@@ -159,7 +157,7 @@ export default class User extends React.Component {
 			}
 		}
 
-		// Init curUserRecordId:
+		// Init userRecordId:
 		if (this.props.userRecordId) {
 			userRecordId = this.props.userRecordId;
 			this.isNewRecord = false;
@@ -186,12 +184,6 @@ export default class User extends React.Component {
 	componentDidMount() {
 		let userRecord = {};
 
-		// console.info('In componentDidMount()');
-		// console.log(`[componentDidMount] this.canViewDetails: ${this.canViewDetails}`);
-		// console.log(`[componentDidMount] this.canEditContent: ${this.canEditContent}`);
-		// console.log(`[componentDidMount] this.canCreateContent: ${this.canCreateContent}`);
-		// console.log('---------------------------------------------------');
-
 		// Init userRecord
 		if (this.state.userRecordId && this.state.userRecordId !== 'new' && this.state.userClass) {
 			this.context.UserService.getUserById(this.state.userRecordId)
@@ -206,7 +198,7 @@ export default class User extends React.Component {
 			});
 		} else {
 			userRecord = {
-				// init to user defaults:
+				// fall back to user defaults:
 				_id: null,
 				username: '',
 				password: '',
@@ -229,12 +221,6 @@ export default class User extends React.Component {
 	render() {
 		// let userClass = this.state.userClass;
 		let userRecord = this.state.userRecord;
-
-		// console.info('In render()');
-		// console.log(`[render] this.canViewDetails: ${this.canViewDetails}`);
-		// console.log(`[render] this.canEditContent: ${this.canEditContent}`);
-		// console.log(`[render] this.canCreateContent: ${this.canCreateContent}`);
-		// console.log('---------------------------------------------------');
 
 		return (
 			<section id='user'>
@@ -322,7 +308,7 @@ export default class User extends React.Component {
 				(this.canEditContent)
 				? ( <div className='form-group col-md-3'>
 						<label htmlFor='skypeid'>Skype Id</label>
-						<input type='text' id='skypeid' name='skype' placeholder='Skype' className='form-control'
+						<input type='text' id='skypeid' name='skypeId' placeholder='Skype' className='form-control'
 							value={userRecord.skypeId || ''} onChange={this.handleFormChange} />
 					</div> )
 				: ( <span className='ro-field col-md-3'><b>Skype Id:</b> {(this.canViewDetails) ? userRecord.skypeId : ''}</span> )

@@ -8,6 +8,13 @@ export default class UserService {
 
 		this.getUsers = this.getUsers.bind(this);
 		this.getUserById = this.getUserById.bind(this);
+		this.updateUserById = this.updateUserById.bind(this);
+		this.createUser = this.createUser.bind(this);
+		this.deleteUserById = this.deleteUserById.bind(this);
+		this.postJsonAsPromise = this.postJsonAsPromise.bind(this);
+		this.getJsonAsPromise = this.getJsonAsPromise.bind(this);
+		this.putJsonAsPromise = this.putJsonAsPromise.bind(this);
+		this.deleteJsonAsPromise = this.deleteJsonAsPromise.bind(this);
 	}	// constructor()
 
 	getUsers() {

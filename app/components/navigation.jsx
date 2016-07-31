@@ -26,7 +26,7 @@ import { Glyphicon } from 'react-bootstrap';
           <ul className="nav navbar-nav">
             <li className="active"><Link to="/"><Glyphicon glyph="home" /> Home<span className="sr-only">(current)</span></Link></li>
             <li><Link activeClassName='active' to={{ pathname: '/contacts', query: { userClass: 'generic' } }}>Contacts</Link></li>
-            <li><Link activeClassName='active' to={{ pathname: '/contact', query: { userClass: 'generic' } }}>Add Contact</Link></li>
+            <li><Link activeClassName='active' to={{ pathname: '/contacts/new', query: { userClass: 'admin' } }}>Add Contact</Link></li>
             <li><Link activeClassName='active' to={{ pathname: '/search', query: { userClass: 'generic' } }}>Search Contacts</Link></li>
             <li><Link activeClassName='active' to={{ pathname: '/users', query: { userClass: 'generic' } }}>Users</Link></li>
             <li className="dropdown">
@@ -35,7 +35,7 @@ import { Glyphicon } from 'react-bootstrap';
               <ul className="dropdown-menu">
                 <li><Link activeClassName='active' to={{ pathname: '/home', query: { userClass: 'generic' } }}>Home</Link></li>
                 <li><Link activeClassName='active' to={{ pathname: '/contacts', query: { userClass: 'generic' } }}>Contacts</Link></li>
-                <li><Link activeClassName='active' to={{ pathname: '/contact', query: { userClass: 'generic' } }}>Add Contact</Link></li>
+                <li><Link activeClassName='active' to={{ pathname: '/contacts/new', query: { userClass: 'admin' } }}>Add Contact</Link></li>
                 <li><Link activeClassName='active' to="/user">User Profile</Link></li>
                 <li><Link activeClassName='active' to={{ pathname: '/users', query: { userClass: 'generic' } }}>Users</Link></li>
                 <li role="separator" className="divider"></li>
@@ -56,7 +56,7 @@ import { Glyphicon } from 'react-bootstrap';
               <ul className="dropdown-menu">
                 <li><Link to="/" activeClassName='active'>Home</Link></li>
                 <li><Link activeClassName='active' to={{ pathname: '/contacts', query: { userClass: 'generic' } }}>Contacts</Link></li>
-                <li><Link activeClassName='active' to={{ pathname: '/contact', query: { userClass: 'generic' } }}>Add Contact</Link></li>
+                <li><Link activeClassName='active' to={{ pathname: '/contacts/new', query: { userClass: 'admin' } }}>Add Contact</Link></li>
                 <li><Link activeClassName='active' to={{ pathname: '/users', query: { userClass: 'generic' } }}>Users</Link></li>
                 <li role="separator" className="divider"></li>
                 <li><Link activeClassName='active' to={{ pathname: '/about', query: { userClass: 'generic' } }}>About</Link></li>

@@ -45,11 +45,12 @@ export default class Users extends React.Component {
 						pathname: '/users',
 						query: {
 							userId: this.state.userId,
-							userClass: this.state.userClass
+							userClass: setUserClassTo
 						}
 					});
 				});
 		}
+
 		this.context.router.push({ pathname: targetPath, query: { userId: this.state.userId, userClass: setUserClassTo } });
 	}	// delUser()
 
@@ -79,7 +80,7 @@ export default class Users extends React.Component {
 				<div className='row list-row' key={user._id}>
 					<div className='col-md-2 username'>
 						<Link id={user._id} className='list-group-item'
-							to={{ pathname: `/users/${user._id}`, query: { userClass: userClass || null } }}>
+							to={{ pathname: `/users/${user._id}`, query: { userClass: 'generic' } }}>
 							<b>{user.username}</b></Link>
 					</div>
 					<div className='col-md-6 names'>
@@ -94,7 +95,7 @@ export default class Users extends React.Component {
 					}
 					{
 						(userClass === 'generic' || userClass === 'admin')
-						? (	<button type='button' className='btn btn-danger'
+						? (	<button type='button' className='btn btn-danger list-item-btn'
 							onClick={() => this.delUser(user._id, 'admin')}>Delete User</button> )
 						: (' ')
 					}

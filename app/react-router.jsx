@@ -28,10 +28,9 @@ ReactDOM.render((
 			<IndexRoute component={Home} />
 			<Route path='/home' component={Home} />
 			<Route path='/about' component={About} />
-			<Route path='/contact' component={Contact} />
 			<Route path='/search' component={SearchContacts} />
 			<Route path='/contacts' component={Contacts} />
-			<Route path='/contacts(/:contactId)' component={Contact} />
+			<Route path='/contacts/:contactRecordId' component={Contact} />
 			<Route path='/users' component={Users} />
 			<Route path='/users/:userRecordId' component={User} />
 		</Route>

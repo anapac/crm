@@ -12,19 +12,47 @@ export default class Contacts extends React.Component {
         // Init state --> equivalent to getInitialState() in React.createClass()
         this.state = {
             contacts: [],
-            userClass: null,
-            userId: null
+            userId: null,
+            userClass: null
         };
 
         this.render = this.render.bind(this);
+        this.showContactDetails = this.showContactDetails.bind(this);
+        this.createNewContact = this.createNewContact.bind(this);
+        this.delContact = this.delContact.bind(this);
     } // constructor()
 
-    showContactDetails(contactId) {
+    showContactDetails(contactId, setUserClassTo) {
         let targetPath = `/contacts/${contactId}`;
-        let curUserClass = this.state.userClass || null;
 
-        this.context.router.push({ pathname: targetPath, query: { userClass: curUserClass } });
-    }   // showUserDetails()
+        this.context.router.push({ pathname: targetPath, query: { userId: this.state.userId, userClass: setUserClassTo } });
+    }   // showContactDetails()
+
+    createNewContact() {
+        let targetPath = '/contacts/new';
+        let setUserClassTo = 'admin';
+
+        this.context.router.push({ pathname: targetPath, query: { userId: this.state.userId, userClass: setUserClassTo } });
+    }   // createNewContact()
+
+    delContact(contactId, setUserClassTo) {
+        let targetPath = `/contacts/${contactId}`;
+
+        if (contactId) {
+            this.context.ContactService.deleteContactById(contactId)
+                .then(() => {
+                    this.context.router.push({
+                        pathname: '/contacts',
+                        query: {
+                            userId: this.state.userId,
+                            userClass: setUserClassTo
+                        }
+                    });
+                });
+        }
+
+        this.context.router.push({ pathname: targetPath, query: { userId: this.state.userId, userClass: setUserClassTo } });
+    }   // delContact()
 
     componentWillMount() {
         let curUserClass = null;
@@ -52,17 +80,23 @@ export default class Contacts extends React.Component {
                 <div className='row list-row' key={contact._id}>
                     <div className='col-md-4 contactname'>
                         <Link id={contact._id} className='list-group-item'
-                            to={{ pathname: `/contacts/${contact._id}`, query: { userClass: userClass || null } }}>
+                            to={{ pathname: `/contacts/${contact._id}`, query: { userId: this.state.userId, userClass: 'generic' } }}>
                             <b>{contact.namesLast}, {contact.namesFirst} {contact.namesOther}</b></Link>
                     </div>
-                    <div className='col-md-6 names'>
+                    <div className='col-md-5 names'>
                         <p className='list-item-text'>phone: {contact.phone}, mobile: {contact.mobile},<br />email: {contact.email}</p>
                     </div>
-                    <div className='col-md-2 buttons'>
+                    <div className='col-md-3 buttons'>
                     {
                         (userClass === 'generic' || userClass === 'admin')
                         ? (<button type='button' className='btn btn-primary list-item-btn'
-                            onClick={() => this.showContactDetails(contact._id)}>    Details</button>)
+                            onClick={() => this.showContactDetails(contact._id, 'admin')}><Glyphicon glyph="zoom-in" /> Details</button>)
+                        : (' ')
+                    }
+                    {
+                        (userClass === 'generic' || userClass === 'admin')
+                        ? ( <button type='button' className='btn btn-danger list-item-btn'
+                            onClick={() => this.delContact(contact._id, 'admin')}>Delete Contact</button> )
                         : (' ')
                     }
                     </div>
@@ -80,6 +114,10 @@ export default class Contacts extends React.Component {
                         transitionLeaveTimeout={300}>
                         {contactNodes}
                     </ReactCSSTransitionGroup>
+                    </div>
+                    <div className='btn-row bordered'>
+                        <button type='button' className='btn btn-default'
+                            onClick={() => this.createNewContact()}>New Contact</button>
                     </div>
                 </div>
         );
